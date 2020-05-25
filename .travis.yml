@@ -15,9 +15,7 @@ after_success:
     - docker build -t riteshvaryani/multi-nginx ./nginx
     - docker build -t riteshvaryani/multi-worker ./worker
 # Login to docker-cli
-    - echo "$DOCKER_PASSWORD"
-    - echo "$DOCKER_ID"
-    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Push to docker-cli
     - docker push riteshvaryani/multi-client
     - docker push riteshvaryani/multi-server
